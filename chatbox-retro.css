@@ -425,6 +425,34 @@ body:has(#chatbox_header) {
   border-color: var(--cb-yellow) !important;
 }
 
+/* Bouton d'upload d'image ajouté par chatbox-upload.js */
+
+#chatbox_footer #cb-image-upload {
+  flex: 0 0 36px !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  background: #101827 !important;
+  color: var(--cb-cyan) !important;
+  border: 1px solid var(--cb-cyan) !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 var(--cb-pink) !important;
+}
+
+#chatbox_footer #cb-image-upload:hover {
+  color: var(--cb-yellow) !important;
+  border-color: var(--cb-yellow) !important;
+}
+
+#chatbox_footer #cb-image-upload.is-uploading {
+  cursor: wait !important;
+  color: var(--cb-pink) !important;
+  opacity: 0.75 !important;
+}
+
 /* Écran affiché lorsqu'un visiteur n'est pas connecté. */
 
 body:has(> table .cattitle) > table {
@@ -622,4 +650,79 @@ body.chatbox #chatbox_messenger_form {
   body.chatbox #chatbox.ltr {
     left: 180px !important;
   }
+}
+
+/* ==================================================
+   FENÊTRE CENTRÉE
+   La CB est limitée à 980 px et ses quatre panneaux
+   partagent exactement les mêmes limites.
+   ================================================== */
+
+body.chatbox {
+  --cb-shell-width: min(980px, calc(100vw - 40px));
+  --cb-shell-left: calc((100vw - var(--cb-shell-width)) / 2);
+  --cb-sidebar-width: 240px;
+}
+
+body.chatbox #chatbox_header.forabg {
+  right: auto !important;
+  left: var(--cb-shell-left) !important;
+  width: var(--cb-shell-width) !important;
+  transform: none !important;
+  z-index: 60 !important;
+}
+
+body.chatbox #chatbox_members.chatbox-members {
+  right: auto !important;
+  left: var(--cb-shell-left) !important;
+  display: block !important;
+  visibility: visible !important;
+  width: var(--cb-sidebar-width) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  z-index: 40 !important;
+}
+
+body.chatbox #chatbox.ltr {
+  right: auto !important;
+  left: calc(var(--cb-shell-left) + var(--cb-sidebar-width)) !important;
+  width: calc(var(--cb-shell-width) - var(--cb-sidebar-width)) !important;
+  z-index: 20 !important;
+}
+
+body.chatbox #chatbox_footer {
+  right: auto !important;
+  left: var(--cb-shell-left) !important;
+  width: var(--cb-shell-width) !important;
+  z-index: 60 !important;
+}
+
+@media (max-width: 700px) {
+  body.chatbox {
+    --cb-shell-width: calc(100vw - 16px);
+    --cb-sidebar-width: 170px;
+  }
+
+  body.chatbox #chatbox_members.chatbox-members {
+    width: var(--cb-sidebar-width) !important;
+    padding: 12px 9px !important;
+  }
+
+  body.chatbox #chatbox.ltr {
+    left: calc(var(--cb-shell-left) + var(--cb-sidebar-width)) !important;
+    width: calc(var(--cb-shell-width) - var(--cb-sidebar-width)) !important;
+  }
+}
+
+
+#chatbox .msg img,
+#chatbox .message img {
+  display: block;
+  width: auto;
+  max-width: min(420px, 90%);
+  max-height: 280px;
+  margin: 8px 0;
+  object-fit: contain;
+  border: 2px solid var(--cb-cyan);
+  box-shadow: 4px 4px 0 var(--cb-pink);
 }
