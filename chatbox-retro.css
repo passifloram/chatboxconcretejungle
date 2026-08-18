@@ -225,7 +225,7 @@ body:has(#chatbox_header) {
 #chatbox .username {
   font-weight: bold !important;
   text-decoration: none !important;
-  text-shadow: 0 0 6px currentColor !important;
+  text-shadow: none !important;
 }
 
 #chatbox a {
@@ -233,8 +233,12 @@ body:has(#chatbox_header) {
 }
 
 #chatbox .msg,
-#chatbox .message {
-  color: var(--cb-text) !important;
+#chatbox .msg *,
+#chatbox .message,
+#chatbox .message * {
+  color: #f2f7ff !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
 }
 
 #chatbox .online,
