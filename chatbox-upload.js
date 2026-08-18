@@ -68,6 +68,8 @@
       insertImageTags(messageField);
     });
 
-    form.insertBefore(imageButton, messageField);
+    /* Le champ #message est parfois imbriqué dans un sous-conteneur
+       selon la version Forumactif : insertion dans son parent réel. */
+    messageField.parentNode.insertBefore(imageButton, messageField);
   });
 })();
