@@ -1,5 +1,5 @@
 /* ==================================================
-   CHATBOX FORUMACTIF — GAMING RÉTRO
+   CHATBOX GAMING RÉTRO
    Version : ModernBB
    ================================================== */
 
@@ -124,8 +124,13 @@ body:has(#chatbox_header) {
 
 #chatbox_title::before,
 .chatbox-title::before {
-  content: "▶ ";
+  content: "\f11b";
+  display: inline-block;
+  margin-right: 10px;
   color: var(--cb-pink);
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", FontAwesome, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 #chatbox_header a,
@@ -159,6 +164,13 @@ body:has(#chatbox_header) {
   color: var(--cb-green);
   font-size: 9px;
   text-shadow: 0 0 7px var(--cb-green);
+  animation: cb-led 1.8s steps(2, end) infinite;
+}
+
+@keyframes cb-led {
+  50% {
+    opacity: 0.4;
+  }
 }
 
 #chatbox_members .member-title {
@@ -236,10 +248,22 @@ body:has(#chatbox_header) {
 #chatbox .msg,
 #chatbox .msg *,
 #chatbox .message,
-#chatbox .message * {
+#chatbox .message *,
+#chatbox .user-msg,
+#chatbox p > span:not(.date-and-time):not(.date) {
   color: var(--cb-message) !important;
   opacity: 1 !important;
   text-shadow: none !important;
+}
+
+/* Petite invite de console devant les vrais messages. */
+
+#chatbox .user-msg .msg::before,
+#chatbox .user-msg .message::before {
+  content: "▸";
+  margin-right: 7px;
+  color: var(--cb-cyan) !important;
+  font-weight: bold;
 }
 
 #chatbox .online,
@@ -275,6 +299,13 @@ body:has(#chatbox_header) {
 #chatbox_messenger_form input[type="text"]:focus {
   border-color: var(--cb-cyan) !important;
   box-shadow: 0 0 10px rgba(56, 242, 255, 0.35) !important;
+  animation: cb-input-pulse 1.5s steps(2, end) infinite;
+}
+
+@keyframes cb-input-pulse {
+  50% {
+    border-bottom-color: var(--cb-pink);
+  }
 }
 
 #message::placeholder {
@@ -386,55 +417,5 @@ body:has(> table .cattitle) > table .cattitle {
   #chatbox_title,
   .chatbox-title {
     font-size: 9px !important;
-  }
-}
-
-
-/* Icône devant le titre */
-#chatbox_title::before,
-.chatbox-title::before {
-  content: "🎮";
-  margin-right: 9px;
-  color: var(--cb-pink);
-  filter: grayscale(1);
-}
-
-/* Invite rétro devant les messages normaux */
-#chatbox .msg::before,
-#chatbox .message::before {
-  content: "▸";
-  margin-right: 7px;
-  color: var(--cb-cyan);
-}
-
-/* Voyant des membres connectés */
-#chatbox_members li::before {
-  content: "●";
-  margin-right: 7px;
-  color: var(--cb-green);
-  font-size: 8px;
-  animation: cb-led 1.8s steps(2, end) infinite;
-}
-
-@keyframes cb-led {
-  50% {
-    opacity: 0.4;
-  }
-}
-
-/* Coins pixelisés du panneau de messages */
-#chatbox {
-  outline: 1px solid rgba(56, 242, 255, 0.15);
-  outline-offset: -6px;
-}
-
-/* Curseur lumineux dans le champ */
-#message:focus {
-  animation: cb-input-pulse 1.5s steps(2, end) infinite;
-}
-
-@keyframes cb-input-pulse {
-  50% {
-    border-bottom-color: var(--cb-pink);
   }
 }
