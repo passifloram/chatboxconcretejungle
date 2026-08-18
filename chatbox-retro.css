@@ -18,24 +18,25 @@
   --cb-border: #263653;
 }
 
-html,
-body {
+#chatbox_header,
+#chatbox_members,
+#chatbox,
+#chatbox_footer {
+  font-family: "Share Tech Mono", Consolas, monospace !important;
+  font-size: 14px !important;
   scrollbar-color: var(--cb-cyan) var(--cb-bg);
 }
 
-body {
-  margin: 0 !important;
+#chatbox {
   background:
     linear-gradient(rgba(56, 242, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(56, 242, 255, 0.025) 1px, transparent 1px),
     var(--cb-bg) !important;
   background-size: 20px 20px !important;
   color: var(--cb-text) !important;
-  font-family: "Share Tech Mono", Consolas, monospace !important;
-  font-size: 14px !important;
 }
 
-body::after {
+#chatbox::after {
   content: "";
   position: fixed;
   inset: 0;
@@ -307,14 +308,14 @@ body::after {
 
 /* Écran affiché lorsqu'un visiteur n'est pas connecté. */
 
-body > table {
+body:has(> table .cattitle) > table {
   width: 100% !important;
   height: 100vh !important;
   background: radial-gradient(circle at center, #172038 0, #080b14 65%) !important;
   border-collapse: collapse !important;
 }
 
-body > table .cattitle {
+body:has(> table .cattitle) > table .cattitle {
   display: inline-block !important;
   max-width: 500px !important;
   padding: 22px 28px !important;
@@ -329,20 +330,24 @@ body > table .cattitle {
     0 0 22px rgba(56, 242, 255, 0.35) !important;
 }
 
-::-webkit-scrollbar {
+#chatbox::-webkit-scrollbar,
+#chatbox_members::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+#chatbox::-webkit-scrollbar-track,
+#chatbox_members::-webkit-scrollbar-track {
   background: var(--cb-bg);
 }
 
-::-webkit-scrollbar-thumb {
+#chatbox::-webkit-scrollbar-thumb,
+#chatbox_members::-webkit-scrollbar-thumb {
   background: var(--cb-border);
   border: 2px solid var(--cb-bg);
 }
 
-::-webkit-scrollbar-thumb:hover {
+#chatbox::-webkit-scrollbar-thumb:hover,
+#chatbox_members::-webkit-scrollbar-thumb:hover {
   background: var(--cb-cyan);
 }
 
