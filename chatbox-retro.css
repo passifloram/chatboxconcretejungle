@@ -14,6 +14,7 @@
   --cb-yellow: #ffe66d;
   --cb-green: #6dff8b;
   --cb-text: #d8e8ff;
+  --cb-message: #b8c4d6;
   --cb-muted: #7d8ca8;
   --cb-border: #263653;
 }
@@ -236,7 +237,7 @@ body:has(#chatbox_header) {
 #chatbox .msg *,
 #chatbox .message,
 #chatbox .message * {
-  color: #f2f7ff !important;
+  color: var(--cb-message) !important;
   opacity: 1 !important;
   text-shadow: none !important;
 }
@@ -385,5 +386,55 @@ body:has(> table .cattitle) > table .cattitle {
   #chatbox_title,
   .chatbox-title {
     font-size: 9px !important;
+  }
+}
+
+
+/* Icône devant le titre */
+#chatbox_title::before,
+.chatbox-title::before {
+  content: "🎮";
+  margin-right: 9px;
+  color: var(--cb-pink);
+  filter: grayscale(1);
+}
+
+/* Invite rétro devant les messages normaux */
+#chatbox .msg::before,
+#chatbox .message::before {
+  content: "▸";
+  margin-right: 7px;
+  color: var(--cb-cyan);
+}
+
+/* Voyant des membres connectés */
+#chatbox_members li::before {
+  content: "●";
+  margin-right: 7px;
+  color: var(--cb-green);
+  font-size: 8px;
+  animation: cb-led 1.8s steps(2, end) infinite;
+}
+
+@keyframes cb-led {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Coins pixelisés du panneau de messages */
+#chatbox {
+  outline: 1px solid rgba(56, 242, 255, 0.15);
+  outline-offset: -6px;
+}
+
+/* Curseur lumineux dans le champ */
+#message:focus {
+  animation: cb-input-pulse 1.5s steps(2, end) infinite;
+}
+
+@keyframes cb-input-pulse {
+  50% {
+    border-bottom-color: var(--cb-pink);
   }
 }
