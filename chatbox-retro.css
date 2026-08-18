@@ -493,7 +493,7 @@ body:has(> table .cattitle) > table .cattitle {
    ================================================== */
 
 body.chatbox #chatbox_header {
-  position: absolute !important;
+  position: fixed !important;
   top: 0 !important;
   right: 0 !important;
   left: 0 !important;
@@ -528,7 +528,7 @@ body.chatbox #chatbox_header ul#chatbox_main_options.chatbox-options > li {
 }
 
 body.chatbox #chatbox_members.chatbox-members {
-  position: absolute !important;
+  position: fixed !important;
   top: 50px !important;
   bottom: 58px !important;
   left: 0 !important;
@@ -573,7 +573,7 @@ body.chatbox #chatbox_members ul.away-users > li {
 }
 
 body.chatbox #chatbox.ltr {
-  position: absolute !important;
+  position: fixed !important;
   top: 50px !important;
   right: 0 !important;
   bottom: 58px !important;
@@ -581,15 +581,36 @@ body.chatbox #chatbox.ltr {
   box-sizing: border-box !important;
   width: auto !important;
   height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
 }
 
 body.chatbox #chatbox_footer {
-  position: absolute !important;
+  position: fixed !important;
   right: 0 !important;
   bottom: 0 !important;
   left: 0 !important;
   width: auto !important;
   height: 58px !important;
+  overflow: hidden !important;
+  z-index: 50 !important;
+}
+
+html:has(body.chatbox),
+body.chatbox {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+body.chatbox #chatbox_messenger_form {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 40px !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
 }
 
 @media (max-width: 600px) {
