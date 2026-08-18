@@ -18,6 +18,23 @@
   --cb-border: #263653;
 }
 
+/* Le body de l'iframe ChatBox uniquement.
+   :has(#chatbox_header) empêche cette règle de toucher le reste du forum. */
+
+body:has(#chatbox_header) {
+  min-height: 100vh !important;
+  margin: 0 !important;
+  background-color: var(--cb-bg) !important;
+  background-image:
+    linear-gradient(rgba(56, 242, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 242, 255, 0.025) 1px, transparent 1px) !important;
+  background-position: 0 0 !important;
+  background-repeat: repeat !important;
+  background-size: 20px 20px !important;
+  color: var(--cb-text) !important;
+  font-family: "Share Tech Mono", Consolas, monospace !important;
+}
+
 #chatbox_header,
 #chatbox_members,
 #chatbox,
