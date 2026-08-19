@@ -1,7 +1,4 @@
-/* ==================================================
-   CHATBOX FORUMACTIF — GAMING RÉTRO
-   Version : ModernBB
-   ================================================== */
+/* ========== CHATBOX GAMING RÉTRO ===================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
@@ -140,8 +137,6 @@ body:has(#chatbox_header) {
     2px 2px 0 #143a62,
     0 0 9px rgba(56, 242, 255, 0.65) !important;
 }
-
-/* Icône manette : l'ancienne icône Ionicons est masquée. */
 
 .chatbox-title .chat-title > i {
   display: none !important;
@@ -322,7 +317,6 @@ body:has(#chatbox_header) {
   text-shadow: none !important;
 }
 
-/* Petite invite de console devant les vrais messages. */
 
 #chatbox .user-msg .msg::before,
 #chatbox .user-msg .message::before {
@@ -425,7 +419,6 @@ body:has(#chatbox_header) {
   border-color: var(--cb-yellow) !important;
 }
 
-/* Bouton d'upload d'image ajouté par chatbox-upload.js */
 
 #chatbox_footer #cb-image-upload {
   flex: 0 0 36px !important;
@@ -514,11 +507,6 @@ body:has(> table .cattitle) > table .cattitle {
   }
 }
 
-/* ==================================================
-   RENFORT DE MISE EN PAGE
-   Les sélecteurs volontairement plus précis empêchent
-   le thème général Forumactif d'écraser la ChatBox.
-   ================================================== */
 
 body.chatbox #chatbox_header {
   position: fixed !important;
@@ -654,8 +642,7 @@ body.chatbox #chatbox_messenger_form {
 
 /* ==================================================
    FENÊTRE CENTRÉE
-   La CB est limitée à 980 px et ses quatre panneaux
-   partagent exactement les mêmes limites.
+   La CB limitée à 980 px
    ================================================== */
 
 body.chatbox {
