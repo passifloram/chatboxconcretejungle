@@ -1,6 +1,6 @@
 /* ==================================================
-   FORUMACTIF CHATBOX — BOUTON BALISE IMAGE
-   Insère [img][/img] et place le curseur au milieu.
+   CHATBOX BOUTON BALISE IMAGE
+   Insère [img][/img] et place le curseur au milieu pour qu'on ait juste à C/C l'url
    ================================================== */
 
 (function () {
